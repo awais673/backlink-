@@ -1,0 +1,25 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+website_link = "https://capcutify.com/"  # Your website link
+
+@app.route('/')
+def index():
+    return render_template('index.html', website_link=website_link)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlink Generator</title>
+</head>
+<body>
+    <h1>Backlink Generator</h1>
+    <p>Click the link below to get a backlink to your website:</p>
+    <a href="{{ website_link }}">{{ website_link }}</a>
+</body>
+</html>
